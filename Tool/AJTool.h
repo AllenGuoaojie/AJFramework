@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "sys/utsname.h"
+#import "AccountTool.h"
+#import "Singletion.h"
 
 @interface AJTool : NSObject
 //MD5

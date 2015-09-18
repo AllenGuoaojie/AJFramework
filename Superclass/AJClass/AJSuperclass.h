@@ -13,5 +13,6 @@
     #import "AJTextField.h"
     #import "AJButton.h"
     #import "AJScrollView.h"
+    #import "AJView.h"
 
 #endif

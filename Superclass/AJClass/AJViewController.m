@@ -6,9 +6,12 @@
 //
 
 #import "AJViewController.h"
+#import "AJSuperclass.h"
 
 @interface AJViewController ()
-
+{
+    AJButton *selectedBtn;
+}
 @end
 
 @implementation AJViewController
@@ -16,8 +19,15 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+    //默认背景为白色
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    //默认title为类名
+    self.title =  [NSString stringWithUTF8String:object_getClassName(self)];
+
+    //iOS7以上解决scrollview顶部空白问题
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -36,6 +46,7 @@
     
     [super viewWillDisappear:animated];
     
+
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -81,6 +92,60 @@
 
 //点击单个右边按钮
 -(void)didTapNavRightBtn:(AJButton *)sender{
-    NSLog(@"还没写点击方法哦, 方法名是:\"didTapNavRightBtn:\"");
+}
+
+#pragma mark - 添加顶部筛选按钮
+-(AJScrollView *)addTopSelectBtnViewWithBtnName:(NSArray *)nameArr andViewFrame:(CGRect )frame andShowButtonCount:(NSInteger) btnCount andBtnColors:(NSDictionary *)colorDic{
+    
+    AJScrollView *topSelectBtnView = [[AJScrollView alloc]initWithFrame:frame];
+    topSelectBtnView.showsHorizontalScrollIndicator = NO;
+    topSelectBtnView.showsVerticalScrollIndicator = NO;
+    topSelectBtnView.backgroundColor = colorDic[@"backgroundColor"];
+    
+    for (int i = 0; i < nameArr.count; i++) {
+        
+        AJButton *selectBtn = [AJButton new];
+        
+        selectBtn.tag = i;
+        
+        selectBtn.frame = CGRectMake(i * (IPONEWIDTH/btnCount), 0, IPONEWIDTH/btnCount, frame.size.height);
+        
+        selectBtn.backgroundColor = colorDic[@"backgroundColor"];
+        
+        selectBtn.titleLabel.font = [UIFont fontWithName:systemFont size:12];
+        
+        [selectBtn setTitleColor:colorDic[@"UIControlStateNormal"] forState:UIControlStateNormal];
+        
+        [selectBtn setTitleColor:colorDic[@"UIControlStateSelected"] forState:UIControlStateSelected];
+        
+        [selectBtn setTitle:nameArr[i] forState:UIControlStateNormal];
+        
+        [selectBtn addTarget:self action:@selector(didTapTopSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [topSelectBtnView addSubview:selectBtn];
+        
+        topSelectBtnView.contentSize = CGSizeMake(CGRectGetMaxX(selectBtn.frame), -64);
+        
+        switch (i) {
+            case 0:
+                selectBtn.selected = YES;
+                selectedBtn = selectBtn;
+                break;
+            default:
+                break;
+        }
+        
+        AJView *line = [[AJView alloc]initWithFrame:CGRectMake(selectBtn.frame.size.width - .5f, 7.5, .5f, selectBtn.frame.size.height - 15)];
+        line.backgroundColor = kColor(220, 220, 220, 1);
+        [selectBtn addSubview:line];
+    }
+
+    return topSelectBtnView;
+}
+
+-(void)didTapTopSelectBtn:(AJButton *)sender{
+    selectedBtn.selected = NO;
+    sender.selected = YES;
+    selectedBtn = sender;
 }
 @end

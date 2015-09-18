@@ -12,6 +12,5 @@
     #import "AJNetwork.h"
     #import "AJSuperclass.h"
     #import "AJTool.h"
-    #import "AccountTool.h"
 
 #endif
