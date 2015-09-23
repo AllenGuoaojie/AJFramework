@@ -14,5 +14,6 @@
     #import "AJButton.h"
     #import "AJScrollView.h"
     #import "AJView.h"
+    #import "AJTableView.h"
 
 #endif

@@ -51,6 +51,7 @@
     if (title == nil) return;
     self.stateTitles[@(state)] = title;
     self.stateLabel.text = self.stateTitles[@(self.state)];
+    self.stateLabel.font = [UIFont fontWithName:systemFont size:15];
 }
 
 #pragma mark key的处理
@@ -86,8 +87,10 @@
         
         // 3.显示日期
         self.lastUpdatedTimeLabel.text = [NSString stringWithFormat:@"最后更新：%@", time];
+        self.lastUpdatedTimeLabel.font = [UIFont fontWithName:systemFont size:15];
     } else {
         self.lastUpdatedTimeLabel.text = @"最后更新：无记录";
+        self.lastUpdatedTimeLabel.font = [UIFont fontWithName:systemFont size:15];
     }
 }
 

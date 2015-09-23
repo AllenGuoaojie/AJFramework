@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
+#import "AJSuperclass.h"
 #import "UIImageView+WebCache.h"
 
 //AFNetworking
@@ -31,12 +32,12 @@ typedef void (^ImageSuccessBlock)(UIImage *image, NSError *error, SDImageCacheTy
 
 
 //封装了SDWebImage加载图片的方法
-+(UIImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image;
++(AJImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image;
 
 //封装了SDWebImage加载图片的方法,带SDWebImageOptions
-+(UIImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image andOptions:(SDWebImageOptions)options;
++(AJImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image andOptions:(SDWebImageOptions)options;
 
 //封装了SDWebImage加载图片的方法,带SDWebImageOptions,带成功block
-+(UIImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image andOptions:(SDWebImageOptions)options success:(ImageSuccessBlock)success;
++(AJImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image andOptions:(SDWebImageOptions)options success:(ImageSuccessBlock)success;
 
 @end

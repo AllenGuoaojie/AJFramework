@@ -86,7 +86,7 @@
     _isShowing = NO;
     
     self.frame = CGRectMake(0, 0, _containerView.bounds.size.width, _containerView.bounds.size.height);
-    self.backgroundColor = [UIColor colorWithHexCode:@"#DB7769"];
+    self.backgroundColor = [UIColor whiteColor];
     
     width = sqrtf(kFe_HourGlass_Length * kFe_HourGlass_Length + kFe_HourGlass_Length * kFe_HourGlass_Length);
     height = sqrtf((kFe_HourGlass_Length * kFe_HourGlass_Length) - ((width / 2.0f) * (width / 2.0f)));
@@ -116,7 +116,7 @@
     _topLayer = [CAShapeLayer layer];
     _topLayer.frame = CGRectMake(0, 0, width, height);
     _topLayer.path = path.CGPath;
-    _topLayer.fillColor = [UIColor whiteColor].CGColor;
+    _topLayer.fillColor = kColor(153, 159, 186, 1).CGColor;
     _topLayer.strokeColor = [UIColor whiteColor].CGColor;
     _topLayer.lineWidth = 0.0f;
     _topLayer.anchorPoint = CGPointMake(0.5f, 1);
@@ -139,7 +139,7 @@
     _bottomLayer = [CAShapeLayer layer];
     _bottomLayer.frame = CGRectMake(0, height, width, height);
     _bottomLayer.path = path.CGPath;
-    _bottomLayer.fillColor = [UIColor whiteColor].CGColor;
+    _bottomLayer.fillColor = kColor(153, 159, 186, 1).CGColor;
     _bottomLayer.strokeColor = [UIColor whiteColor].CGColor;
     _bottomLayer.lineWidth = 0.0f;
     _bottomLayer.anchorPoint = CGPointMake(0.5f, 1.0f);
@@ -158,7 +158,7 @@
     // Line Layer
     _lineLayer = [CAShapeLayer layer];
     _lineLayer.frame = CGRectMake(0, height, width, height);
-    _lineLayer.strokeColor = [UIColor whiteColor].CGColor;
+    _lineLayer.strokeColor = kColor(153, 159, 186, 1).CGColor;
     _lineLayer.lineWidth = 1.0;
     _lineLayer.lineJoin = kCALineJoinMiter;
     _lineLayer.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithInt:1], nil];

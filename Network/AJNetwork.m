@@ -38,20 +38,20 @@
 }
 
 
-+(UIImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image{
-    UIImageView *imageView = [UIImageView new];
++(AJImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image{
+    AJImageView *imageView = [AJImageView new];
     [imageView sd_setImageWithURL:url placeholderImage:image];
     return imageView;
 }
 
-+(UIImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image andOptions:(SDWebImageOptions)options{
-    UIImageView *imageView = [UIImageView new];
++(AJImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image andOptions:(SDWebImageOptions)options{
+    AJImageView *imageView = [AJImageView new];
     [imageView sd_setImageWithURL:url placeholderImage:image options:options];
     return imageView;
 }
 
-+(UIImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image andOptions:(SDWebImageOptions)options success:(ImageSuccessBlock)success{
-    UIImageView *imageView = [UIImageView new];
++(AJImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image andOptions:(SDWebImageOptions)options success:(ImageSuccessBlock)success{
+    AJImageView *imageView = [AJImageView new];
     [imageView sd_setImageWithURL:url placeholderImage:image options:options completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         success(image, error, cacheType, imageURL);
     }];

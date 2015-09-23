@@ -41,6 +41,7 @@
     if (title == nil) return;
     self.stateTitles[@(state)] = title;
     self.stateLabel.text = self.stateTitles[@(self.state)];
+    self.stateLabel.font = [UIFont fontWithName:systemFont size:15];
 }
 
 #pragma mark - 重写父类的方法

@@ -11,6 +11,9 @@
 #import "AccountTool.h"
 #import "Singletion.h"
 
+#import "AJView+Common.h"
+#import "NSMutableDictionary+AJDeleteNull.h"
+
 @interface AJTool : NSObject
 //MD5
 + (NSString *)md5_base64:(NSString *)string;
@@ -24,4 +27,6 @@
 + (NSString *)getNowTimestamp;
 //DIC转JSON
 + (NSString*)dictionaryToJson:(NSDictionary *)dic;
+//时间戳转换
++(NSString *)compareCurrentTime:(NSString *)time;
 @end

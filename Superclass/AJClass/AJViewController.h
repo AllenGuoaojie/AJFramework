@@ -21,8 +21,23 @@
 
 
 //添加顶部筛选按钮
-//参数说明：nameArr(姓名数组), frame(view的frame), btnCount(直接展示多少个按钮, 多余的按钮在屏幕外, 通过滚动展示), colorDic(分别是btn的backgroundcolor, normalTitleColor, selectedTitleColor)
--(AJScrollView *)addTopSelectBtnViewWithBtnName:(NSArray *)nameArr andViewFrame:(CGRect )frame andShowButtonCount:(NSInteger)btnCount andBtnColors:(NSDictionary *)colorDic;
+//参数说明：nameArr(姓名数组), frame(view的frame), btnCount(直接展示多少个按钮, 多余的按钮在屏幕外, 通过滚动展示), sampleBtn(需要提供一个sampleBtn，创建的btn将从sampleBtn中获取backgroundColor、nomalTitleColor、selectTitleColor)
+-(AJScrollView *)addTopSelectBtnViewWithBtnName:(NSArray *)nameArr andViewFrame:(CGRect )frame andShowButtonCount:(NSInteger) btnCount andSampleBtn:(AJButton *)sampleBtn;
 //点击选择按钮
 -(void)didTapTopSelectBtn:(AJButton *)sender;
+
+
+//将UIWindow的RootViewController设置为指定ViewController
+-(void)setWindowRootViewController:(AJViewController *)controller;
+
+
+//添加加载页
+-(void)addLoadingPageWithFrame:(CGRect )frame;
+//隐藏加载页
+-(void)hideLoadingView;
+
+
+#warning 为了ETOA特地封装的方法
+-(void)TokenPastDue;
+-(void)otherUserLogin;
 @end
