@@ -8,6 +8,10 @@
 #import <UIKit/UIKit.h>
 
 @interface AJViewController : UIViewController
+{
+    AFHTTPRequestOperationManager *afnManager;//方便VC获取当前afnManager
+}
+
 //添加没有按钮的Alert
 -(void)addNoBtnAlertWithTitle:(NSString *)title;
 //添加没有按钮的Alert，自定义显示时间
@@ -33,9 +37,10 @@
 
 //添加加载页
 -(void)addLoadingPageWithFrame:(CGRect )frame;
+//添加加载页可选背景色
+-(void)addLoadingPageWithFrame:(CGRect )frame andBackgroundColor:(UIColor *)color;
 //隐藏加载页
 -(void)hideLoadingView;
-
 
 #warning 为了ETOA特地封装的方法
 -(void)TokenPastDue;

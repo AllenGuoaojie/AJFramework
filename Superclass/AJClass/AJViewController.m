@@ -49,14 +49,13 @@
 -(void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
-    
+        
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     
     [super viewWillDisappear:animated];
     
-
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -180,6 +179,20 @@
     [self.view addSubview:loadingView];
     
     FeHourGlass *hourGlass = [[FeHourGlass alloc] initWithView:loadingView];
+    [loadingView addSubview:hourGlass];
+    
+    [hourGlass showWhileExecutingBlock:^{  } completion:^{  }];
+    
+    [self.view sendSubviewToBack:loadingView];
+}
+
+-(void)addLoadingPageWithFrame:(CGRect )frame andBackgroundColor:(UIColor *)color{
+    loadingView.frame = frame;
+    loadingView.backgroundColor = color;
+    [self.view addSubview:loadingView];
+    
+    FeHourGlass *hourGlass = [[FeHourGlass alloc] initWithView:loadingView];
+    hourGlass.backgroundColor = color;
     [loadingView addSubview:hourGlass];
     
     [hourGlass showWhileExecutingBlock:^{  } completion:^{  }];

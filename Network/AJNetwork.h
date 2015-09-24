@@ -30,7 +30,6 @@ typedef void (^ImageSuccessBlock)(UIImage *image, NSError *error, SDImageCacheTy
 //封装了AFNetworking的POST方法
 +(void)postWithURL:(NSString *)url andParameters:(id)parameters success:(SuccessBlock)success fairlue:(FairlueBlock)fairlue;
 
-
 //封装了SDWebImage加载图片的方法
 +(AJImageView *)setImageWithURL:(NSURL *)url andPlaceholderImage:(UIImage *)image;
 

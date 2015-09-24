@@ -29,4 +29,5 @@
 + (NSString*)dictionaryToJson:(NSDictionary *)dic;
 //时间戳转换
 +(NSString *)compareCurrentTime:(NSString *)time;
++(NSString *)timestampToDate:(NSString *)timestamp;
 @end

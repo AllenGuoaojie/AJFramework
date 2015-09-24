@@ -8,5 +8,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AJButton : UIButton
+@property (assign, nonatomic) CGFloat AJFont;
 
 @end

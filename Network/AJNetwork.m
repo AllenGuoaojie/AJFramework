@@ -13,6 +13,10 @@
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    //发送当前的manager，方便cancel
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"CURRENTAFNMANAGER" object:@{@"manager":manager}];
+    
     [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         success(responseObject);

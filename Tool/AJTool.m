@@ -87,9 +87,9 @@
     
     NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[today timeIntervalSince1970]];  //转化为UNIX时间戳
     
-    return timeSp;
-    
+    return timeSp;    
 }
+
 
 #pragma mark Dic转Json
 + (NSString*)dictionaryToJson:(NSDictionary *)dic{
@@ -102,10 +102,13 @@
     
 }
 
-+(NSString *)compareCurrentTime:(NSString *)time
-{
+
+#pragma mark 时间转换
+//对比时间
++(NSString *)compareCurrentTime:(NSString *)timestamp{
+    
     NSString *nowTime = [AJTool getNowTimestamp];
-    NSString *serverTime = time;
+    NSString *serverTime = timestamp;
     int timeInterval = ([nowTime intValue] - [serverTime intValue]);
     
     long temp = 0;
@@ -135,4 +138,19 @@
     
     return  result;
 }
+
+//时间戳换时间
++(NSString *)timestampToDate:(NSString *)timestamp{
+    
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timestamp integerValue]];
+    NSString *dateStr = [NSString stringWithFormat:@"%@",[formatter stringFromDate:date]];
+    
+    return dateStr;
+}
+
 @end

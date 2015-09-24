@@ -91,11 +91,15 @@
 
 #pragma mark 下拉刷新和上拉加载
 -(void)refreshData{
-    [_ajDelegate AJTableViewBeginRefresh];
+    if ([_ajDelegate respondsToSelector:@selector(AJTableViewBeginRefresh)]) {
+        [_ajDelegate AJTableViewBeginRefresh];
+    }
 }
 
 -(void)loadMoreData{
-    [_ajDelegate AJTableViewLoadMoreData];
+    if ([_ajDelegate respondsToSelector:@selector(AJTableViewLoadMoreData)]) {
+        [_ajDelegate AJTableViewLoadMoreData];
+    }
 }
 
 #pragma mark - tableviewDelegate
@@ -120,5 +124,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [_ajDelegate AJTableView:self didSelectRowAtIndexPath:indexPath];
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    if ([_ajDelegate respondsToSelector:@selector(AJTableViewWillBeginDecelerating)]) {
+        [_ajDelegate AJTableViewWillBeginDecelerating];
+    }
 }
 @end

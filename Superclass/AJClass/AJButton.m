@@ -9,12 +9,10 @@
 
 @implementation AJButton
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(void)setAJFont:(CGFloat)AJFont{
+    _AJFont = AJFont;
+    self.titleLabel.font = [UIFont fontWithName:systemFont size:AJFont];
 }
-*/
+
 
 @end
